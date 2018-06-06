@@ -13,14 +13,13 @@ const route = require('./routes/route');
 mongoose.connect('mongodb://localhost:27017/contactlist');
 
 // On connection
-mongoose.connection.on('connected', () =>{
+mongoose.connection.on('connected', () => {
     console.log('Connected to database mongodb @ 27017');
 });
 
 // On connection
-mongoose.connection.on('error', (err) =>{
-    if(err)
-    {
+mongoose.connection.on('error', (err) => {
+    if (err) {
         console.log('Error in Database connection: ' + err);
     }
     console.log('Connected to database mongodb @ 27017');
@@ -42,11 +41,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', route);
 
 // Testing server
-app.get('/', (req, res)=>{
+app.get('/', (req, res) => {
     res.send('foobar');
 });
 
 // Binding server with the port
-app.listen(port, ()=> {
+app.listen(port, () => {
     console.log('Server started at port: ' + port);
 });
